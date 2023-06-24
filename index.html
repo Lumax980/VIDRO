@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empresa de Vidros</title>
+  <style>
+    /* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+    <main>
+    <section>
+        <h2>Vidros Decorativos</h2>
+        <div class="product">
+          <img src="vidrodeco.jpg" alt="Vidro Decorativo 1">
+          <h3>Nome do Produto 1</h3>
+          <p>Descrição do Produto 1</p>
+          <p>Preço: $X.XX</p>
+        </div>
+        <div class="product">
+          <img src="vidrodeco.png" alt="Vidro Decorativo 2">
+          <h3>Nome do Produto 2</h3>
+          <p>Descrição do Produto 2</p>
+          <p>Preço: $X.XX</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Vidros Temperados</h2>
+        <div class="product">
+          <img src="temperado.jpg" alt="Vidro Temperado 1">
+          <h3>Nome do Produto 1</h3>
+          <p>Descrição do Produto 1</p>
+          <p>Preço: $X.XX</p>
+        </div>
+        <div class="product">
+          <img src="temperado2.jpg" alt="Vidro Temperado 2">
+          <h3>Nome do Produto 2</h3>
+          <p>Descrição do Produto 2</p>
+          <p>Preço: $X.XX</p>
+        </div>
+      </section>
+    </main>
+      
+      
+  <header>
+    <h1>Empresa de Vidros</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Produtos</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Pesquisar sobre Vidros</h2>
+      <form> 
+        <input type="text" placeholder="Digite sua pesquisa">
+        <button type="submit">Pesquisar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Empresa de Vidros. Todos os direitos reservados.</p>
+  </footer>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+  // Seleciona o formulário e o campo de pesquisa
+  const form = document.querySelector('form');
+  const input = document.querySelector('input[type="text"]');
+
+  // Evento de envio do formulário
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    const searchTerm = input.value; // Obtém o termo de pesquisa digitado pelo usuário
+
+    // Verifica se o termo de pesquisa está vazio
+    if (searchTerm.trim() === '') {
+      alert('Digite um termo de pesquisa válido.');
+      return;
+    }
+
+    // URL da API para buscar informações sobre vidros
+    const apiUrl = `https://exemplo-api.com/buscar?termo=${encodeURIComponent(searchTerm)}`;
+
+    // Faz a requisição para a API usando o fetch
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        // Processa os dados da API
+        // Exemplo: exiba os resultados em um console
+        console.log(data);
+      })
+      .catch(error => {
+        console.log('Ocorreu um erro:', error);
+      });
+  });
+});
+
+  </script>
+</body>
+</html>
